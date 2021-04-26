@@ -2,7 +2,7 @@ package bot
 
 import (
 	"fmt"
-	pk "github.com/Tnze/go-mc/net/packet"
+	pk "github.com/VacPlusPlus/go-mc/net/packet"
 )
 
 // HandleGame receive server packet and response them correctly.

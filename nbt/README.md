@@ -1,4 +1,4 @@
-# NBT [![Go Reference](https://pkg.go.dev/badge/github.com/Tnze/go-mc/nbt.svg)](https://pkg.go.dev/github.com/Tnze/go-mc/nbt)
+# NBT [![Go Reference](https://pkg.go.dev/badge/github.com/VacPlusPlus/go-mc/nbt.svg)](https://pkg.go.dev/github.com/VacPlusPlus/go-mc/nbt)
 This package implement the [Named Binary Tag](https://wiki.vg/NBT) format of Minecraft. 
 
 The API is very similar to the  standard library `encoding/json`. If you (high probability) have used that, it is easy to use this.
@@ -21,7 +21,7 @@ To read and write would look like:
 package main
 
 import "bytes"
-import "github.com/Tnze/go-mc/nbt"
+import "github.com/VacPlusPlus/go-mc/nbt"
 
 type Compound struct {
     Name string `nbt:"name"` // The field must be started with the capital letter

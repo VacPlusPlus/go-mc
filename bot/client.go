@@ -1,7 +1,7 @@
 package bot
 
 import (
-	"github.com/Tnze/go-mc/net"
+	"github.com/VacPlusPlus/go-mc/net"
 	"github.com/google/uuid"
 )
 

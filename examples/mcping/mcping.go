@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Tnze/go-mc/bot"
-	"github.com/Tnze/go-mc/chat"
+	"github.com/VacPlusPlus/go-mc/bot"
+	"github.com/VacPlusPlus/go-mc/chat"
 	"github.com/google/uuid"
 )
 

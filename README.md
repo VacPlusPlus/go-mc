@@ -1,8 +1,8 @@
 # Go-MC
 ![Version](https://img.shields.io/badge/Minecraft-1.16.5-blue.svg)
 ![Protocol](https://img.shields.io/badge/Protocol-754-blue.svg)
-[![Go Reference](https://pkg.go.dev/badge/github.com/Tnze/go-mc.svg)](https://pkg.go.dev/github.com/Tnze/go-mc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/Tnze/go-mc)](https://goreportcard.com/report/github.com/Tnze/go-mc)
+[![Go Reference](https://pkg.go.dev/badge/github.com/VacPlusPlus/go-mc.svg)](https://pkg.go.dev/github.com/VacPlusPlus/go-mc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/VacPlusPlus/go-mc)](https://goreportcard.com/report/github.com/VacPlusPlus/go-mc)
 [![Build Status](https://travis-ci.org/Tnze/go-mc.svg?branch=master)](https://travis-ci.org/Tnze/go-mc)
 
 Require Go version: 1.16
@@ -21,19 +21,19 @@ There's some library in Go support you to create your Minecraft client or server
 
 > 由于仍在开发中，部分API在未来版本中可能会变动
 
-> `1.13.2` version is at [gomcbot](https://github.com/Tnze/gomcbot).
+> `1.13.2` version is at [gomcbot](https://github.com/VacPlusPlus/gomcbot).
 
 ## Getting start
 After you install golang:  
-To get the latest version: `go get github.com/Tnze/go-mc@master`  
-To get old versions (e.g. 1.14.3): `go get github.com/Tnze/go-mc@v1.14.3`
+To get the latest version: `go get github.com/VacPlusPlus/go-mc@master`  
+To get old versions (e.g. 1.14.3): `go get github.com/VacPlusPlus/go-mc@v1.14.3`
 
 First, you might have a try of the simple examples. It's a good start.
 
 ### Run Examples
 
-- Run `go run github.com/Tnze/go-mc/cmd/mcping localhost` to ping and list the localhost mc server.  
-- Run `go run github.com/Tnze/go-mc/cmd/daze` to join the local server at *localhost:25565* as Steve on the offline mode.
+- Run `go run github.com/VacPlusPlus/go-mc/cmd/mcping localhost` to ping and list the localhost mc server.  
+- Run `go run github.com/VacPlusPlus/go-mc/cmd/daze` to join the local server at *localhost:25565* as Steve on the offline mode.
 
 ### Basic Usage
 
@@ -42,8 +42,8 @@ One of the most useful functions of this lib is that it implements the network c
 这个库最核心的便是实现了Minecraft底层的网络通信协议，可以用与构造、发送、接收和解读MC数据包。这是靠 `go-mc/net` 和 `go-mc/net/packet`这两个包实现的。
 
 ```go
-import "github.com/Tnze/go-mc/net"
-import pk "github.com/Tnze/go-mc/net/packet"
+import "github.com/VacPlusPlus/go-mc/net"
+import pk "github.com/VacPlusPlus/go-mc/net/packet"
 ```
 
 It's very easy to create a packet. For example, after any client connected the server, it sends a [Handshake Packet](https://wiki.vg/Protocol#Handshake). You can create this package with the following code:

@@ -1,8 +1,8 @@
 package basic
 
 import (
-	"github.com/Tnze/go-mc/data/packetid"
-	pk "github.com/Tnze/go-mc/net/packet"
+	"github.com/VacPlusPlus/go-mc/data/packetid"
+	pk "github.com/VacPlusPlus/go-mc/net/packet"
 )
 
 func (p Player) handleKeepAlivePacket(packet pk.Packet) error {

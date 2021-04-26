@@ -3,10 +3,10 @@ package basic
 import (
 	"github.com/google/uuid"
 
-	"github.com/Tnze/go-mc/bot"
-	"github.com/Tnze/go-mc/chat"
-	"github.com/Tnze/go-mc/data/packetid"
-	pk "github.com/Tnze/go-mc/net/packet"
+	"github.com/VacPlusPlus/go-mc/bot"
+	"github.com/VacPlusPlus/go-mc/chat"
+	"github.com/VacPlusPlus/go-mc/data/packetid"
+	pk "github.com/VacPlusPlus/go-mc/net/packet"
 )
 
 type EventsListener struct {

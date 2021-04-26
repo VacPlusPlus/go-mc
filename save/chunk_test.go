@@ -2,9 +2,9 @@ package save
 
 import (
 	"bytes"
-	"github.com/Tnze/go-mc/data/packetid"
-	pk "github.com/Tnze/go-mc/net/packet"
-	"github.com/Tnze/go-mc/save/region"
+	"github.com/VacPlusPlus/go-mc/data/packetid"
+	pk "github.com/VacPlusPlus/go-mc/net/packet"
+	"github.com/VacPlusPlus/go-mc/save/region"
 	"testing"
 	"unsafe"
 )

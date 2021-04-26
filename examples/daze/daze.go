@@ -12,10 +12,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/Tnze/go-mc/bot"
-	"github.com/Tnze/go-mc/bot/basic"
-	"github.com/Tnze/go-mc/chat"
-	_ "github.com/Tnze/go-mc/data/lang/zh-cn"
+	"github.com/VacPlusPlus/go-mc/bot"
+	"github.com/VacPlusPlus/go-mc/bot/basic"
+	"github.com/VacPlusPlus/go-mc/chat"
+	_ "github.com/VacPlusPlus/go-mc/data/lang/zh-cn"
 )
 
 var address = flag.String("address", "127.0.0.1", "The server address")

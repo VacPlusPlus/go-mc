@@ -10,10 +10,10 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/Tnze/go-mc/chat"
-	"github.com/Tnze/go-mc/data/packetid"
-	mcnet "github.com/Tnze/go-mc/net"
-	pk "github.com/Tnze/go-mc/net/packet"
+	"github.com/VacPlusPlus/go-mc/chat"
+	"github.com/VacPlusPlus/go-mc/data/packetid"
+	mcnet "github.com/VacPlusPlus/go-mc/net"
+	pk "github.com/VacPlusPlus/go-mc/net/packet"
 )
 
 // ProtocolVersion , the protocol version number of minecraft net protocol
@@ -22,13 +22,13 @@ const DefaultPort = 25565
 
 // JoinServer connect a Minecraft server for playing the game.
 // Using roughly the same way to parse address as minecraft.
-func (c *Client) JoinServer(addr string) (err error) {
-	return c.join(&net.Dialer{}, addr)
+func (c *Client) JoinServer(addr string, protVer uint64) (err error) {
+	return c.join(&net.Dialer{}, addr, protVer)
 }
 
 // JoinServerWithDialer is similar to JoinServer but using a Dialer.
-func (c *Client) JoinServerWithDialer(d *net.Dialer, addr string) (err error) {
-	return c.join(d, addr)
+func (c *Client) JoinServerWithDialer(d *net.Dialer, addr string, protVer uint64) (err error) {
+	return c.join(d, addr, protVer)
 }
 
 // parseAddress will lookup SRV records for the address
@@ -58,7 +58,7 @@ func parseAddress(r *net.Resolver, addr string) (string, error) {
 	return net.JoinHostPort(host, strconv.FormatUint(uint64(port), 10)), nil
 }
 
-func (c *Client) join(d *net.Dialer, addr string) error {
+func (c *Client) join(d *net.Dialer, addr string, protVer uint64) error {
 	const Handshake = 0x00
 	addrSrv, err := parseAddress(d.Resolver, addr)
 	if err != nil {
@@ -84,7 +84,7 @@ func (c *Client) join(d *net.Dialer, addr string) error {
 	// Handshake
 	err = c.Conn.WritePacket(pk.Marshal(
 		Handshake,
-		pk.VarInt(ProtocolVersion), // Protocol version
+		pk.VarInt(protVer), // Protocol version
 		pk.String(host),            // Host
 		pk.UnsignedShort(port),     // Port
 		pk.Byte(2),

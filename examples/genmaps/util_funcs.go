@@ -4,7 +4,7 @@ import (
 	"bytes"
 	_ "embed"
 	"encoding/gob"
-	"github.com/Tnze/go-mc/data/block"
+	"github.com/VacPlusPlus/go-mc/data/block"
 	"image"
 	"image/png"
 	"log"

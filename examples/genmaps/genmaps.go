@@ -13,9 +13,9 @@ import (
 	"sync"
 	"unsafe"
 
-	"github.com/Tnze/go-mc/data/block"
-	"github.com/Tnze/go-mc/save"
-	"github.com/Tnze/go-mc/save/region"
+	"github.com/VacPlusPlus/go-mc/data/block"
+	"github.com/VacPlusPlus/go-mc/save"
+	"github.com/VacPlusPlus/go-mc/save/region"
 )
 
 var colors []color.RGBA64
