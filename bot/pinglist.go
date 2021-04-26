@@ -15,7 +15,7 @@ import (
 // Returns a JSON data with server status, and the delay.
 //
 // For more information for JSON format, see https://wiki.vg/Server_List_Ping#Response
-func PingAndList(addr string) ([]byte, time.Duration, error) {
+func PingAndList(addr string, protVer uint64) ([]byte, time.Duration, error) {
 	addrSrv, err := parseAddress(&net.Resolver{}, addr)
 	if err != nil {
 		return nil, 0, LoginErr{"parse address", err}
@@ -25,11 +25,11 @@ func PingAndList(addr string) ([]byte, time.Duration, error) {
 	if err != nil {
 		return nil, 0, LoginErr{"dial connection", err}
 	}
-	return pingAndList(addr, conn)
+	return pingAndList(addr, conn, protVer)
 }
 
 // PingAndListTimeout PingAndLIstTimeout is the version of PingAndList with max request time.
-func PingAndListTimeout(addr string, timeout time.Duration) ([]byte, time.Duration, error) {
+func PingAndListTimeout(addr string, timeout time.Duration, protVer uint64) ([]byte, time.Duration, error) {
 	deadLine := time.Now().Add(timeout)
 
 	addrSrv, err := parseAddress(&net.Resolver{}, addr)
@@ -47,10 +47,10 @@ func PingAndListTimeout(addr string, timeout time.Duration) ([]byte, time.Durati
 		return nil, 0, LoginErr{"set deadline", err}
 	}
 
-	return pingAndList(addr, conn)
+	return pingAndList(addr, conn, protVer)
 }
 
-func pingAndList(addr string, conn *mcnet.Conn) ([]byte, time.Duration, error) {
+func pingAndList(addr string, conn *mcnet.Conn, protVer uint64) ([]byte, time.Duration, error) {
 	// Split Host and Port
 	host, portStr, err := net.SplitHostPort(addr)
 	if err != nil {
@@ -65,7 +65,7 @@ func pingAndList(addr string, conn *mcnet.Conn) ([]byte, time.Duration, error) {
 	//握手
 	err = conn.WritePacket(pk.Marshal(
 		Handshake,                  //Handshake packet ID
-		pk.VarInt(ProtocolVersion), //Protocol version
+		pk.VarInt(protVer), //Protocol version
 		pk.String(host),            //Server's address
 		pk.UnsignedShort(port),
 		pk.Byte(1),
